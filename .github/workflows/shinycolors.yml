@@ -1,0 +1,16 @@
+name: ShinyColors Notify
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{"content":"✅ GitHub Actions接続成功"}' \
+          "${{ secrets.DISCORD_WEBHOOK }}"
